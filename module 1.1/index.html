@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Form</title>
+    <script>
+        function formValidation(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (email.trim() === '' || pasword.trim() === ''){
+                alert('Form tidak bisa kosong');
+                return false;
+            } 
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)){
+                alert('Tolong masukkan email yang valid');
+                return false;
+            }
+
+            if (password.length < 6){
+                alert('Password tidak bisa kurang dari 6 karakter');
+                return false;
+            }
+
+            alert('Form berhasil diinput');
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return formValidation()">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input  type="submit" value="Submit">
+    </form>
+</body>
+</html>
